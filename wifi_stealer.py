@@ -32,7 +32,6 @@ if len(profile_names) != 0:
 		# Checking for more info on each profile. Any key?
 		profile_info = subprocess.run(["netsh", "wlan", "show", "profile", name], capture_output = True).stdout.decode()
 
-		# Regex are a pain. Took me a week to learn them.
 		# Using regex to eliminate case where no password exists.
 		if re.search("Security key           : Absent", profile_info):
 			continue
